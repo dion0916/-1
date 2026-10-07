@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WordPress Интенсив — Создать свой сайт на WordPress</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandOrange: '#f39c12',
+                        brandYellow: '#f1c40f',
+                        brandBlue: '#29b6f6',
+                        brandBlueHover: '#0288d1',
+                        darkBg: '#1e242b',
+                        footerBg: '#1a1a1a'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #333333;
+            background-color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Hero Background with dark overlay */
+        .hero-section {
+            background: linear-gradient(rgba(15, 23, 42, 0.78), rgba(15, 23, 42, 0.85)), 
+                        url('bg-hero.jpg') center/cover no-repeat #1a1a1a;
+        }
+
+        /* Decorative header lines */
+        .header-title-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+        .header-line {
+            flex-grow: 1;
+            height: 2px;
+            background-color: rgba(255, 255, 255, 0.6);
+            max-width: 140px;
+        }
+
+        /* Skills Section Dark Overlay Background */
+        .skills-section {
+            background: linear-gradient(rgba(20, 25, 30, 0.90), rgba(20, 25, 30, 0.94)), 
+                        url('bg-skills.jpg') center/cover no-repeat #1e242b;
+        }
+
+        /* Custom Button Hover Animations */
+        .btn-animate {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 14px rgba(41, 182, 246, 0.4);
+        }
+        .btn-animate:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(41, 182, 246, 0.6);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- SECTION 1: HEADER / HERO -->
+    <header class="hero-section text-white pt-10 pb-16 px-4 min-h-screen flex flex-col justify-between items-center relative text-center">
+        <!-- Logo -->
+        <div class="flex flex-col items-center justify-center space-y-2 mb-10">
+            <img src="logo.png" alt="Логотип" class="w-16 h-16 object-contain" onerror="this.style.display='none'; document.getElementById('alt-logo').style.display='flex';">
+            <!-- Fallback Icon if logo.png is missing -->
+            <div id="alt-logo" class="w-16 h-16 rounded-full bg-white/10 backdrop-blur-md hidden items-center justify-center border border-white/20 shadow-inner">
+                <span class="text-3xl">🦉</span>
+            </div>
+            <span class="text-xs tracking-widest font-bold uppercase text-gray-300">WORDPRESS ИНТЕНСИВ</span>
+        </div>
+
+        <!-- Main Content Box -->
+        <div class="max-w-4xl mx-auto space-y-6 my-auto">
+            <h2 class="text-xl sm:text-2xl md:text-3xl font-extrabold text-brandOrange tracking-wide uppercase">
+                СОЗДАТЬ СВОЙ САЙТ НА WORDPRESS
+            </h2>
+
+            <div class="header-title-wrapper gap-4 my-2">
+                <div class="header-line hidden sm:block"></div>
+                <h1 class="text-3xl sm:text-5xl md:text-6xl font-black text-white tracking-wider uppercase px-2">
+                    ЭТО ПРОСТО!
+                </h1>
+                <div class="header-line hidden sm:block"></div>
+            </div>
+
+            <h2 class="text-xl sm:text-2xl md:text-3xl font-extrabold text-brandOrange tracking-wide uppercase">
+                КУДА СЛОЖНЕЕ СДЕЛАТЬ ЭТО ПРАВИЛЬНО!
+            </h2>
+
+            <!-- Subtitle Text -->
+            <p class="text-sm sm:text-base text-gray-200 max-w-3xl mx-auto leading-relaxed font-light pt-4">
+                Ежедневно в России появляется более 5 000 новых сайтов.<br class="hidden sm:inline">
+                И только единицы из них становятся популярными и приносят ощутимую прибыль. В чем секрет? В чем формула успеха? Узнайте на предстоящем двухдневном <span class="text-brandOrange font-bold uppercase">БЕСПЛАТНОМ</span> интенсиве!
+            </p>
+
+            <!-- CTA Button -->
+            <div class="pt-8 pb-4">
+                <a href="#register" class="inline-block bg-brandBlue hover:bg-brandBlueHover text-white font-bold text-sm sm:text-base px-8 py-4 rounded-md uppercase tracking-wide btn-animate">
+                    ЗАПИСАТЬСЯ НА ИНТЕНСИВ!
+                </a>
+            </div>
+        </div>
+
+        <!-- Downward Scroll Indicator -->
+        <div class="pt-8 flex flex-col items-center opacity-80 hover:opacity-100 transition-opacity">
+            <span class="text-[10px] tracking-widest text-gray-300 uppercase mb-2">УЗНАТЬ БОЛЬШЕ ОБ ИНТЕНСИВЕ</span>
+            <a href="#about" class="animate-bounce text-white text-lg">
+                <i class="fa-solid fa-chevron-down"></i>
+                <i class="fa-solid fa-chevron-down -ml-2"></i>
+            </a>
+        </div>
+    </header>
+
+
+    <!-- SECTION 2: ЧТО ВАС ЖДЕТ В НАШЕМ ИНТЕНСИВЕ? -->
+    <section id="about" class="py-16 bg-gray-100 text-gray-800 px-4">
+        <div class="max-w-6xl mx-auto text-center">
+            
+            <!-- Section Title -->
+            <h2 class="text-2xl sm:text-3xl font-extrabold uppercase text-gray-900 tracking-wide">
+                ЧТО ВАС ЖДЕТ В НАШЕМ ИНТЕНСИВЕ?
+            </h2>
+            <div class="w-24 h-1 bg-brandYellow mx-auto mt-3 mb-4"></div>
+            <p class="text-base sm:text-lg text-gray-600 mb-12 font-medium">
+                2 бесплатных полноценных обучающих вебинара, где:
+            </p>
+
+            <!-- 3 Columns Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+                
+                <!-- Column 1 -->
+                <div class="flex flex-col items-center">
+                    <div class="w-full max-w-xs mb-6 h-48 flex items-center justify-center">
+                        <img src="laptop1.png" alt="Вебинар 1" class="max-h-full max-w-full object-contain" onerror="this.onerror=null; this.src='https://placehold.co/300x180/e2e8f0/475569?text=laptop1.png';">
+                    </div>
+                    <p class="text-xs sm:text-sm text-gray-600 leading-relaxed max-w-xs">
+                        Всего за два бесплатных вебинара мы научим вас, как создать свой сайт на WordPress.
+                    </p>
+                </div>
+
+                <!-- Column 2 -->
+                <div class="flex flex-col items-center">
+                    <div class="w-full max-w-xs mb-6 h-48 flex items-center justify-center">
+                        <img src="laptop2.png" alt="Вебинар 2" class="max-h-full max-w-full object-contain" onerror="this.onerror=null; this.src='https://placehold.co/300x180/e2e8f0/475569?text=laptop2.png';">
+                    </div>
+                    <p class="text-xs sm:text-sm text-gray-600 leading-relaxed max-w-xs">
+                        Покажем, как правильно оптимизировать сайт и сделать его привлекательным для поисковых систем. Только свежая, профессиональная и актуальная информация!
+                    </p>
+                </div>
+
+                <!-- Column 3 -->
+                <div class="flex flex-col items-center">
+                    <div class="w-full max-w-xs mb-6 h-48 flex items-center justify-center">
+                        <img src="laptop3.png" alt="Вебинар 3" class="max-h-full max-w-full object-contain" onerror="this.onerror=null; this.src='https://placehold.co/300x180/e2e8f0/475569?text=laptop3.png';">
+                    </div>
+                    <p class="text-xs sm:text-sm text-gray-600 leading-relaxed max-w-xs">
+                        Вы узнаете, что такое «хорошая индексация», «высокая посещаемость», «стабильный прирост посетителей», «ТОП по запросам» и, что намного важнее, как добиться всех этих показателей!
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- SECTION 3: ЧТО ТАКОЕ ОПТИМИЗАЦИЯ И ЗАЧЕМ ОНА НУЖНА? -->
+    <section class="py-12 bg-white px-4">
+        <div class="max-w-5xl mx-auto border-4 border-yellow-400 p-6 sm:p-10 relative">
+            <div class="flex flex-col lg:flex-row items-center gap-8">
+                
+                <!-- Left Image -->
+                <div class="w-full lg:w-5/12 flex justify-center">
+                    <img 
+                        src="girl.png" 
+                        alt="Оптимизация и SEO" 
+                        class="w-full h-auto max-h-[380px] object-contain"
+                        onerror="this.onerror=null; this.src='https://placehold.co/400x350/ffffff/f59e0b?text=girl.png';"
+                    />
+                </div>
+
+                <!-- Right Text Content -->
+                <div class="w-full lg:w-7/12 space-y-4 text-left">
+                    <h2 class="text-xl sm:text-2xl font-black text-sky-500 uppercase leading-snug">
+                        ЧТО ТАКОЕ ОПТИМИЗАЦИЯ И ЗАЧЕМ ОНА НУЖНА?
+                    </h2>
+
+                    <div class="space-y-3 text-xs sm:text-sm text-gray-600 leading-relaxed font-normal">
+                        <p>
+                            На просторах интернета несчетное количество действующих и даже заброшенных сайтов. Большинство из них совпадает не только по категориям, но и по содержанию.
+                        </p>
+                        <p>
+                            Представьте себе тысячи сайтов, на которых тем или иным образом предоставляется одна и та же информация или продается одна и та же услуга. И попасть на эти сайты можно лишь по тематическим запросам в поисковых системах.
+                        </p>
+                        <p>
+                            Но как вам быть, если ваш сайт похож на сотню или тысячу таких же, а на одной странице гугла или яндекса всего 10 позиций? Как привести посетителей страницы своего ресурса? Именно для этого и нужна оптимизация – для вывода вашего сайта на первую страницу поиска!
+                        </p>
+                        <p class="font-bold text-gray-800 pt-2">
+                            Мы научим вас, как сделать ваш сайт привлекательным для поисковых систем и посоветуем, как вывести его на первые страницы, обходя всех конкурентов.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- SECTION 4: ПО ОКОНЧАНИИ ОБУЧЕНИЯ ВЫ СМОЖЕТЕ! & BONUSES -->
+    <section class="skills-section py-16 text-white px-4">
+        <div class="max-w-6xl mx-auto text-center">
+            
+            <!-- Heading -->
+            <h2 class="text-xl sm:text-2xl font-extrabold uppercase tracking-wide">
+                ПО ОКОНЧАНИИ ОБУЧЕНИЯ ВЫ СМОЖЕТЕ!
+            </h2>
+            <div class="w-24 h-1 bg-brandYellow mx-auto mt-3 mb-12"></div>
+
+            <!-- 5 Round Icons Grid -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 mb-16">
+                
+                <!-- Icon 1 -->
+                <div class="flex flex-col items-center space-y-3">
+                    <div class="w-20 h-20 rounded-full bg-sky-200/90 text-sky-800 flex items-center justify-center text-2xl shadow-lg transform transition hover:scale-105">
+                        <i class="fa-solid fa-desktop"></i>
+                    </div>
+                    <p class="text-xs text-gray-200 max-w-[140px] leading-tight font-medium">
+                        Создать свой сайт или блог
+                    </p>
+                </div>
+
+                <!-- Icon 2 -->
+                <div class="flex flex-col items-center space-y-3">
+                    <div class="w-20 h-20 rounded-full bg-sky-200/90 text-sky-800 flex items-center justify-center text-2xl shadow-lg transform transition hover:scale-105">
+                        <i class="fa-solid fa-chalkboard-user"></i>
+                    </div>
+                    <p class="text-xs text-gray-200 max-w-[140px] leading-tight font-medium">
+                        Правильно его оптимизировать
+                    </p>
+                </div>
+
+                <!-- Icon 3 -->
+                <div class="flex flex-col items-center space-y-3">
+                    <div class="w-20 h-20 rounded-full bg-sky-200/90 text-sky-800 flex items-center justify-center text-2xl shadow-lg transform transition hover:scale-105">
+                        <i class="fa-solid fa-chart-column"></i>
+                    </div>
+                    <p class="text-xs text-gray-200 max-w-[140px] leading-tight font-medium">
+                        Обеспечить ему медленный, но верный рост в ТОП
+                    </p>
+                </div>
+
+                <!-- Icon 4 -->
+                <div class="flex flex-col items-center space-y-3">
+                    <div class="w-20 h-20 rounded-full bg-sky-200/90 text-sky-800 flex items-center justify-center text-2xl shadow-lg transform transition hover:scale-105">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <p class="text-xs text-gray-200 max-w-[140px] leading-tight font-medium">
+                        Достигнуть стабильного прироста посетителей
+                    </p>
+                </div>
+
+                <!-- Icon 5 -->
+                <div class="flex flex-col items-center space-y-3 col-span-2 sm:col-span-1">
+                    <div class="w-20 h-20 rounded-full bg-sky-200/90 text-sky-800 flex items-center justify-center text-2xl shadow-lg transform transition hover:scale-105">
+                        <i class="fa-solid fa-wallet"></i>
+                    </div>
+                    <p class="text-xs text-gray-200 max-w-[140px] leading-tight font-medium">
+                        Получать ощутимую прибыль
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Gift Box Section -->
+    <section class="bg-gray-100 py-12 px-4 text-center">
+        <div class="max-w-3xl mx-auto space-y-6">
+            <!-- Gift Icon Illustration -->
+            <div class="flex justify-center items-center">
+                <img src="gift.png" alt="Подарок" class="w-20 h-20 object-contain" onerror="this.onerror=null; this.style.display='none'; document.getElementById('alt-gift').style.display='block';">
+                <!-- Fallback Gift Icon -->
+                <div id="alt-gift" class="hidden text-6xl text-amber-400">
+                    <i class="fa-solid fa-gift"></i>
+                </div>
+            </div>
+
+            <!-- Text Content -->
+            <p class="text-sm sm:text-base text-gray-700 leading-relaxed font-medium">
+                Для всех участников интенсива предусмотрены бонусы и подарки. Нажимайте на кнопку ниже, принимайте участие в вебинарах и забирайте свой приз по окончании обучения!
+            </p>
+
+            <!-- CTA Button -->
+            <div class="pt-2">
+                <a href="#register" class="inline-block bg-brandBlue hover:bg-brandBlueHover text-white font-bold text-xs sm:text-sm px-8 py-4 rounded-md uppercase tracking-wide btn-animate">
+                    ЗАПИСАТЬСЯ НА ИНТЕНСИВ!
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- SECTION 5: ПЕРВЫЙ ВЕБИНАР СОСТОИТСЯ -->
+    <section id="register" class="py-16 bg-white text-gray-800 text-center px-4">
+        <div class="max-w-4xl mx-auto space-y-6">
+            
+            <!-- Laptop Display Image -->
+            <div class="w-full max-w-sm mx-auto mb-8 h-48 flex items-center justify-center">
+                <img src="laptop-main.png" alt="Главный вебинар" class="max-h-full max-w-full object-contain" onerror="this.onerror=null; this.src='https://placehold.co/350x200/e2e8f0/475569?text=laptop-main.png';">
+            </div>
+
+            <h3 class="text-lg sm:text-xl font-bold uppercase text-gray-800 tracking-wide">
+                ПЕРВЫЙ ВЕБИНАР СОСТОИТСЯ:
+            </h3>
+
+            <h2 class="text-2xl sm:text-4xl font-extrabold text-sky-500 uppercase tracking-wide">
+                10 СЕНТЯБРЯ В 20:00 ПО МОСКВЕ
+            </h2>
+
+            <p class="text-sm sm:text-base text-gray-600 font-normal">
+                Успейте записаться, количество мест ограничено!
+            </p>
+
+        </div>
+    </section>
